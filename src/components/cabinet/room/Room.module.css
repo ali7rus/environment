@@ -1,0 +1,133 @@
+.box {
+  background: linear-gradient(85deg, #4f517a, #1f2131);
+  width: 361px;
+  height: 585px;
+  margin: 10px 10px;
+  margin-right: -180px;
+  padding: 8px;
+  border-radius: 5%;
+  box-shadow: -3rem 0 3rem -2rem rgba(0, 0, 0, 1);
+  transition: 0.2s;
+  z-index: 0;
+  position: relative;
+}
+
+.box:hover {
+  margin: 10px 10px;
+  margin-right: -80px;
+  border-radius: 5%;
+  box-shadow: 0rem 0rem 3rem 0rem rgba(0, 0, 0, 1);
+  transition: 0.2s;
+  transform: rotate(+2deg);
+  z-index: 999;
+}
+
+@media (max-width: 500px) {
+  .box {
+    margin: 10px 10px;
+    margin-right: -180px;
+    padding: 8px;
+    border-radius: 5%;
+    box-shadow: -3rem 0 3rem -2rem rgba(0, 0, 0, 1);
+    transition: 0.2s;
+    padding-bottom: 3%;
+    z-index: 0;
+  }
+  .box:hover {
+    margin: 10px 10px;
+    margin-right: -180px;
+    transform: rotate(0deg);
+    border-radius: 5%;
+    box-shadow: 0rem 0rem 3rem 0rem rgba(0, 0, 0, 1);
+    transition: 0.2s;
+    z-index: 999;
+  }
+}
+
+.image {
+  width: 342px;
+  height: 356px;
+  border-radius: 5% 5% 0% 0%;
+  object-fit: cover;
+  /* display: block; */
+}
+
+.likes {
+  position: relative;
+  bottom: 62px;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttonLikes {
+  margin-left: 5px;
+}
+
+.bottom {
+  position: relative;
+  width: 100%;
+  margin-top: 6px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.box:not(:last-of-type) .bottom:before {
+  content: "Hot";
+  background-color: #ea723d;
+  color: white;
+  font-size: 11px;
+  padding: 4px 7px;
+  position: absolute;
+  left: 20px;
+  top: -40px;
+  z-index: 1;
+}
+
+.bottom h3 {
+  font-size: 25px;
+  margin-top: 5px;
+}
+
+.bottom > p {
+  margin: 5px 0;
+  font-size: 20px;
+  line-height: 1.4;
+  color: #e8e4b8;
+}
+
+.advants {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 15px;
+  height: 112px;
+}
+.price {
+  display: flex;
+  margin-top: 20px;
+  align-items: center; /* для выравнивания элементов по центру по вертикали */
+}
+
+.price p {
+
+  font-size: 25px; /* увеличиваем размер текста */
+  color: #ffdb00; /* делаем текст красным */
+  margin-bottom: 7px;
+  padding-left: 145px;
+}
+
+/* .price span:first-of-type {
+  display: block;
+  font-size: 13px;
+ 
+  margin-bottom: 5px;
+} */
+
+.price span:last-of-type {
+  margin-left: 7px;
+  font-weight: bold;
+  color: #8a700f;
+  font-size: 22px;
+}

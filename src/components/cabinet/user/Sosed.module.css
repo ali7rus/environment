@@ -1,0 +1,80 @@
+.user {
+  position: relative;
+  background: linear-gradient(85deg,#434343,#262626);
+  width: 361px;
+  height: 586px;
+  margin: 10px 10px;
+  margin-right: -180px;
+  padding: 8px;
+  border-radius: 5%;
+  box-shadow: -3rem 0 3rem -2rem rgba(0, 0, 0, 1);
+  transition: .2s;
+  z-index: 0;
+}
+.user:hover {
+  margin: 10px 10px;
+  margin-right: -80px;
+ 
+  border-radius: 5%;
+  box-shadow: 0rem 0rem 3rem 0rem rgba(0, 0, 0, 1);
+  transition: .2s;
+  transform: rotate(+2deg);
+  z-index: 999;
+}
+
+@media (max-width: 500px){
+  .user {
+    background: linear-gradient(85deg,#434343,#262626);
+    margin: 10px 10px;
+    margin-right: -180px;
+    padding: 8px;
+    border-radius: 5%;
+    box-shadow: -3rem 0 3rem -2rem rgba(0, 0, 0, 1);
+    transition: .2s;
+    padding-bottom: 3%;
+    z-index: 0;
+  }
+  .user:hover {
+  
+    margin: 10px 10px;
+    margin-right: -180px;
+    transform: rotate(0deg);
+    border-radius: 5%;
+    box-shadow: 0rem 0rem 3rem 0rem rgba(0, 0, 0, 1);
+    transition: .2s;
+    z-index: 999;
+  }
+}
+
+.imageCard{
+  width: 342px;
+  height: 567px;
+  border-radius: 5% 5% 5% 5%;
+  object-fit: cover; 
+}
+
+.data {
+  position: relative;
+  bottom: 140px;
+  width: 100%;
+  padding-top: 5px;
+  margin-left: 10px;
+  /* box-shadow: -3rem 0 3rem -2rem rgba(0, 0, 0, 1);  */
+}
+/* CSS */
+.cardButton {
+  position: relative;
+  bottom: 564px;
+  padding-left: 10px;
+  padding-right: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.advants {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  bottom: 153px;
+  margin-left: 15px;
+  }

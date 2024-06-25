@@ -1,0 +1,67 @@
+.chatContainer {
+    display: flex;
+    flex-direction: column;
+    background-color: #2b2b2b;
+    max-width: 800px;
+    min-width: 500px;
+    min-height: 80vmin;
+    border: 2px solid #444;
+    border-radius: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    margin: 0 auto;
+    margin-top: 5px;
+    padding: 20px;
+  }
+  
+  .messages {
+    display: flex;
+    flex-direction: column-reverse;
+    overflow: auto;
+    max-height: 480px; 
+    flex-grow: 1;
+  }
+
+.userImage{
+    margin: 4px;
+    width: 52px;
+     height: 52px; 
+    border-radius: 50% ;
+    object-fit: cover;
+  }
+
+  .message {
+    display: flex;
+    flex-direction: row;
+    /* overflow-x: auto; */
+    align-items: center; 
+     /* выравнивание по вертикали */
+     font-size: 25px;
+    gap: 10px;  /* расстояние между элементами */
+  }
+
+  .messageClient{
+    background-color: darkslategray;
+    padding-left: 8px;
+border-radius: 10px;
+margin: 10px;  
+  }
+  .messagePartner{
+      display: flex;
+        flex-direction: column;
+        /* overflow-x: auto; */
+        padding-left: 8px;
+    background-color: darkgrey;
+    border-radius: 10px;
+    margin: 10px;
+  }
+
+  .cardButton {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .NavDropdownExample {
+    position: sticky;
+    top: 0;
+    z-index: 100; /* Это должно быть достаточно, чтобы убедиться, что навигация всегда отображается наверху */
+  }

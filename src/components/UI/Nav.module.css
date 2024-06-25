@@ -1,0 +1,12 @@
+.userImage{
+    margin: 4px;
+    width: 52px;
+     height: 52px; 
+    border-radius: 50% ;
+    object-fit: cover;
+    z-index: 999;
+    position:relative !important;
+  }
+  .navLink{
+    background-color: transparent!important;
+  }

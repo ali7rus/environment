@@ -1,0 +1,57 @@
+.container1 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 40px;
+  padding: 20px;
+}
+
+.imageContainer {
+  width: 256px;
+  height: 275px;
+  background-color: gray;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.inputfile:focus {
+  outline: 1px dotted #000;
+  outline: -webkit-focus-ring-color auto 5px;
+}
+
+.removeButton {
+  position: absolute;
+  top: -16px;
+  right: -22px;
+  background-color: transparent;
+  border: none;
+}
+
+.saveButton {
+  position: absolute;
+  bottom: -17px;
+  left: 232px;
+  background-color: transparent;
+  border: none;
+}
+
+.img {
+  width: 256px;
+  height: 275px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.labelphoto {
+  margin-top: 85px;
+}

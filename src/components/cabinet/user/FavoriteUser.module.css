@@ -1,0 +1,42 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.userImage {
+  margin: 4px;
+  width: 92px;
+  height: 132px;
+  border-radius: 5% 5% 5% 5%;
+  object-fit: cover;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+}
+.contentChat {
+  display: flex;
+  flex-direction: initial;
+  align-items: center;
+  margin: 10px;
+}
+.userImageChat {
+  margin: 4px;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+.messageContainer {
+  padding-right: 10px;
+  display: flex;
+  flex-direction: column;
+}
+.listFavoriteUsers{
+  display: flex;
+  flex-direction: row;  
+}
+

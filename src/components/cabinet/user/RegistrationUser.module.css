@@ -1,0 +1,31 @@
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.label {
+  display: flex;
+  align-items: center;
+  /* margin-left: 10px; */
+  /* color: #ffffff; */
+}
+
+.separator {
+  border-bottom: 1px solid rgba(180, 69, 69, 0.973);
+}
+.separatorgreen {
+  border-bottom: 1px solid rgba(228, 212, 91, 0.797);
+}
+.prevButton{
+  position: absolute;
+  right: 1vmax;
+   bottom: 32px;
+  background-color:transparent; /* меняем цвет фона для лучшей видимости */
+  margin-left: auto;
+  border: none;
+  padding: 2px 5px;
+  /* font-size: 12px; */
+  cursor: pointer;
+  border-radius: 3px; /* добавляем скругление углов кнопки для более приятного вида */
+}

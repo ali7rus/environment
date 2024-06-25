@@ -1,0 +1,13 @@
+body {
+    color: #fff;
+    background-color: #313030;
+}
+.slick-next,
+.slick-prev {
+  display: none !important;
+}
+.slick-dots li button:before {
+    font-size: 10px; /* Увеличиваем размер */
+    color: red; /* Меняем цвет на красный, это необязательно */
+  }
+

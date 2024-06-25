@@ -1,0 +1,27 @@
+.myCarousel {
+   width: auto;
+   height: 569px!important;
+}
+
+.myCarouselImage {
+  width: 370px!important;
+  height: 569px!important;
+  border-radius: 5% 5% 5% 5%;
+  object-fit: cover;
+
+}
+
+@media (max-width: 768px) {
+  .myCarousel {
+    width: auto;
+    height: 465px!important;
+ }
+ 
+ .myCarouselImage {
+   width: 344px!important;
+   height: 465px!important;
+   border-radius: 5% 5% 3% 3%;
+   object-fit: cover;
+ 
+ }
+}
