@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef, useCallback } from "react";
 import { useDispatch } from "react-redux";
-import socket from "../../socket";
+import socket from "../../sockets";
 import { useAuth0 } from "@auth0/auth0-react";
 import styles from "./ChatComponent.module.css";
 import Button from "react-bootstrap/Button";
