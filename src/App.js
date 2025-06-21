@@ -8,8 +8,7 @@ import Sosedi from "./components/cabinet/user/Sosedi";
 import { useEffect, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import styled from "styled-components";
-import Room from "./components/Room/Room";
-import Main from "./components/Main/Main";
+import HomePage from "./components/HomePage";
 import ProtectedPageWrapper from "./store/rout";
 import CabinetUser from "./components/cabinet/CabinetUser";
 import AuthCallback from "./store/AuthCallback";
@@ -94,8 +93,7 @@ function App() {
           />
         )}
         <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="/room/:roomId" element={<Room />} />
+          <Route path="/" element={<HomePage />} />
           <Route
             path="/rooms"
             element={
