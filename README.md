@@ -68,3 +68,10 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Local authentication
+
+For testing in a local network, you can use a simple username/password login.
+Run `npm start` and open `http://<your-ip>:3000/local-login` from any device on the same network.
+Use `test` / `password` as credentials.
+

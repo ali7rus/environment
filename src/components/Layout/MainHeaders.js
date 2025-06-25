@@ -27,6 +27,7 @@ const MainHeaders = (props) => {
   );
 
   const { logout } = useAuth0();
+  const localToken = localStorage.getItem("token");
   const dispatch = useDispatch();
 
   const handleOptionClick = (value) => {
@@ -177,6 +178,21 @@ const MainHeaders = (props) => {
                   }
                 >
                   Exit
+                </Nav.Link>
+              )}
+              {!clientId && !localToken && (
+                <Nav.Link as={Link} to="/local-login">
+                  Local Login
+                </Nav.Link>
+              )}
+              {localToken && (
+                <Nav.Link
+                  onClick={() => {
+                    localStorage.removeItem("token");
+                    window.location = "/";
+                  }}
+                >
+                  Local Logout
                 </Nav.Link>
               )}
             </Nav>
