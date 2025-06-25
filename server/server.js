@@ -1,21 +1,58 @@
 process.env.DEBUG = "socket.io-client:*";
-const fetch = require("node-fetch");
 const http = require("http");
+const express = require("express");
+const cors = require("cors");
+const jwt = require("jsonwebtoken");
 const socketIo = require("socket.io");
-var admin = require("firebase-admin");
+const admin = require("firebase-admin");
 
-var serviceAccount = require('./serviceAccountKey.json');
+const serviceAccount = require("./serviceAccountKey.json");
+
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://progect-joke-default-rtdb.firebaseio.com"
+  databaseURL: "https://progect-joke-default-rtdb.firebaseio.com",
 });
 
-const server = http.createServer((req, res) => {
-  res.writeHead(200, { "Content-Type": "text/plain" });
-  res.end("Hello World\n");
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+// Simple in-memory users list for local testing
+const users = [{ id: 1, username: "test", password: "password" }];
+const JWT_SECRET = "dev-secret";
+
+app.post("/api/login", (req, res) => {
+  const { username, password } = req.body;
+  const user = users.find(
+    (u) => u.username === username && u.password === password
+  );
+  if (!user) {
+    return res.status(401).json({ message: "Invalid credentials" });
+  }
+  const token = jwt.sign({ id: user.id, username: user.username }, JWT_SECRET, {
+    expiresIn: "1h",
+  });
+  res.json({ token });
 });
 
-const io = require("socket.io")(server, {
+function authenticateToken(req, res, next) {
+  const authHeader = req.headers["authorization"];
+  const token = authHeader && authHeader.split(" ")[1];
+  if (!token) return res.sendStatus(401);
+  jwt.verify(token, JWT_SECRET, (err, user) => {
+    if (err) return res.sendStatus(403);
+    req.user = user;
+    next();
+  });
+}
+
+app.get("/api/protected", authenticateToken, (req, res) => {
+  res.json({ message: "protected", user: req.user });
+});
+
+const server = http.createServer(app);
+
+const io = socketIo(server, {
   cors: {
     origin: "*",
     methods: ["GET", "POST"],
@@ -40,18 +77,17 @@ io.on("connection", (socket) => {
     if (!socket.userId) {
       socket.userId = userId;
       console.log(`User registered: ${userId}, socket ID: ${socket.id}`);
-    }  
+    }
   });
 
   socket.on("join_user", (userId) => {
     socket.join(userId);
     console.log(`User joined: ${userId}, socket ID: ${socket.id}`);
   });
-  socket.on("send_message", async (message, callback) => {
-    console.log("send message", message);
+
+  socket.on("send_message", async (message) => {
     const { toUserId, text, fromUserId, clientId, partnerId } = message;
     const timestamp = Date.now();
-    console.log(`Sending message to room: ${toUserId}`);
 
     const newMessage = handleNewMessage({
       fromUserId,
@@ -63,19 +99,19 @@ io.on("connection", (socket) => {
     });
 
     const isRecipientInRoom = io.sockets.adapter.rooms.has(toUserId);
-  
+
     if (isRecipientInRoom) {
-      socket.to(toUserId).emit("receive_message", newMessage); 
+      socket.to(toUserId).emit("receive_message", newMessage);
     } else {
       console.log("No clients in room:", toUserId);
     }
-    // Emit new_message event with the newMessage data
-    io.emit('new_message', newMessage);
+
+    io.emit("new_message", newMessage);
   });
 
   socket.on("leave_user", (userId) => {
-    console.log(`User left userId: ${userId}, socket ID: ${socket.id}`);
     socket.leave(userId);
+    console.log(`User left userId: ${userId}, socket ID: ${socket.id}`);
   });
 
   socket.on("disconnect", () => {
@@ -83,18 +119,4 @@ io.on("connection", (socket) => {
   });
 });
 
-server.listen(4000, () => console.log("Server listening on port 4000"));
-
-function generateChatId(userId1, userId2) {
-  if (userId1 < userId2) {
-    return userId1 + "-" + userId2;
-  } else {
-    return userId2 + "-" + userId1;
-  }
-}
-
-
-
-
-
- 
+server.listen(4000, "0.0.0.0", () => console.log("Server listening on port 4000"));

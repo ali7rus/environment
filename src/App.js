@@ -23,6 +23,7 @@ import FavoriteUsers from "./components/cabinet/user/FavoriteUsers";
 import RegistrationRoomAdvants from "./components/cabinet/room/RegistrationRoomAdvants";
 import RegistrationUserAdvants from "./components/cabinet/user/RegistrationUserAdvants";
 import { useClientData } from "./store/hook";
+import LocalLoginForm from "./components/auth/LocalLoginForm";
 import {
   subscribeToRoomsData,
   unsubscribeFromRoomsData,
@@ -175,6 +176,7 @@ function App() {
             }
           />
           <Route path="/api/auth/callback" element={<AuthCallback />} />
+          <Route path="/local-login" element={<LocalLoginForm />} />
           <Route
             path="/protected"
             element={

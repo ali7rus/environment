@@ -32,6 +32,7 @@
     "firebase-admin": "^11.9.0",
     "framer-motion": "^10.15.0",
     "http": "0.0.1-security",
+    "jsonwebtoken": "^9.0.2",
     "leaflet": "^1.9.3",
     "leaflet-geosearch": "^3.8.0",
     "lodash": "^4.17.21",
@@ -88,5 +89,4 @@
       "last 1 safari version"
     ]
   }
-  
 }
